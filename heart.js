@@ -8,7 +8,7 @@ class Heart {
 
     instanciar(){
         let newHeart = document.createElement("i");
-        newHeart.className += " " + "fas";
+        newHeart.className += " " + "fa";
         newHeart.className += " " + "fa-heart";
         newHeart.className += " " + "heart"
         newHeart.style.top = this.y + "px";

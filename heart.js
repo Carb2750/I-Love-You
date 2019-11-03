@@ -13,8 +13,8 @@ class Heart {
         newHeart.className += " " + "heart"
         newHeart.style.top = this.y + "px";
         newHeart.style.left = this.x + "px";
+        newHeart.style.fontSize = this.size + "px";
         newHeart.style.color = this.color;
-        console.log("Instanciando: " + this.x);
 
         return newHeart;
     }

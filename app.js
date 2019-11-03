@@ -1,7 +1,6 @@
 
-let colors = ["#00FF00", "#FF00FF", "#00FF00"];
+let colors = ["#00FF00", "#FF00FF", "#FF0000", "#FFFF00", "#B3FEE2", "#ffb366", "#ffb3ea"];
 let frases = ["I Love You", "Te Amo", "Je T'aime", "Ek het jou lief", "Ti Amo", "Ich liebe dich", "S 'agapó", "我爱你", "愛してる", "사랑해", "Mahal kita", "Rakastan sinua"];
-
 //let rand = Math.floor(Math.random() * 2)
 
 //let color = colors[rand];
@@ -31,10 +30,10 @@ let opa = 0.01;
 
 function instanciar(){
     let instantiateHeart = setInterval(() => {
-        let rand = Math.floor(Math.random() * 3)    
+        let rand = Math.floor(Math.random() * colors.length)    
         let color = colors[rand];
         posX = Math.floor(Math.random() * 700 ) + 300;
-        let heart = new Heart(posX, posY, 100, color);
+        let heart = new Heart(posX, posY, Math.floor(Math.random() * 110) + 50, color);
         let newHeart = heart.instanciar();
         div.appendChild(newHeart);
         //heart.style.top = heart.posY + "px";
@@ -90,7 +89,6 @@ function titleAnimation(){
             title.style.opacity = 1;
             opacityCont = 0.01;
             tituloID++;
-            console.log("ENTRANDO");
             if(tituloID > frases.length - 1){
                 tituloID = 0;
             }

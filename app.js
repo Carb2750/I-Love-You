@@ -2,7 +2,7 @@
 let colors = ["#00FF00", "#FF00FF", "#FF0000", "#FFFF00", "#B3FEE2", "#ffb366", "#ffb3ea"];
 let frases = ["I Love You", "Te Amo", "Je T'aime", "Ek het jou lief", "Ti Amo", "Ich liebe dich", "S 'agapó", "我爱你", "愛してる", "사랑해", "Mahal kita", "Rakastan sinua"];
 //let rand = Math.floor(Math.random() * 2)
-
+let nombre = "Rina";
 //let color = colors[rand];
 
 /*let heart = document.getElementById("heart");
@@ -28,23 +28,43 @@ let j = 600;
 let i = 0;
 let opa = 0.01;
 
-function instanciar(){
-    let instantiateHeart = setInterval(() => {
-        let rand = Math.floor(Math.random() * colors.length)    
-        let color = colors[rand];
-        posX = Math.floor(Math.random() * 700 ) + 300;
-        let heart = new Heart(posX, posY, Math.floor(Math.random() * 110) + 50, color);
-        let newHeart = heart.instanciar();
-        div.appendChild(newHeart);
-        //heart.style.top = heart.posY + "px";
-        //heart.style.left = heart.posX + "px";
-        hearts.push(heart);
-        
-        document.body.appendChild(div);
-        //console.log("Instanciando: " + hearts.length);
-        heartAnimation(newHeart, j, opa);
-        
-}, 700);
+function instanciar(x){
+    if(x.matches){
+        let instantiateHeart = setInterval(() => {
+            let rand = Math.floor(Math.random() * colors.length)    
+            let color = colors[rand];
+            posX = Math.floor(Math.random() *   500 ) + 50;
+            let heart = new Heart(posX, posY, Math.floor(Math.random() * 90) + 30, color);
+            let newHeart = heart.instanciar();
+            div.appendChild(newHeart);
+            //heart.style.top = heart.posY + "px";
+            //heart.style.left = heart.posX + "px";
+            hearts.push(heart);
+            
+            document.body.appendChild(div);
+            //console.log("Instanciando: " + hearts.length);
+            heartAnimation(newHeart, j, opa);
+            
+        }, 700);
+    }
+    else{
+        let instantiateHeart = setInterval(() => {
+            let rand = Math.floor(Math.random() * colors.length)    
+            let color = colors[rand];
+            posX = Math.floor(Math.random() * 900 ) + 300;
+            let heart = new Heart(posX, posY, Math.floor(Math.random() * 110) + 50, color);
+            let newHeart = heart.instanciar();
+            div.appendChild(newHeart);
+            //heart.style.top = heart.posY + "px";
+            //heart.style.left = heart.posX + "px";
+            hearts.push(heart);
+            
+            document.body.appendChild(div);
+            //console.log("Instanciando: " + hearts.length);
+            heartAnimation(newHeart, j, opa);
+            
+        }, 700);
+    }
 }
 
 function heartAnimation(newHeart, j, opa){
@@ -77,7 +97,7 @@ function heartAnimation(newHeart, j, opa){
 
 let title = document.getElementById("title");
 let tituloID = 0;
-title.innerHTML = frases[tituloID];
+title.innerHTML = frases[tituloID] + " " + nombre;
 let opacityCont = 0.01;
 
 function titleAnimation(){
@@ -92,11 +112,14 @@ function titleAnimation(){
             if(tituloID > frases.length - 1){
                 tituloID = 0;
             }
-            title.innerHTML = frases[tituloID];
+            title.innerHTML = frases[tituloID] + " " + nombre;
         }
     }, 100);
 }
 
 titleAnimation();
-instanciar();
+
+var x = window.matchMedia("(max-height: 1024px");// Call listener function at run time
+instanciar(x);
+x.addListener(instanciar);
 //console.log(hearts.length);
